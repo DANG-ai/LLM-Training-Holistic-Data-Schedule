@@ -1,0 +1,11 @@
+{
+  "seed": 42,
+  "save": "outputs/acdom_1B_seed42",
+  "wandb_group": "acdom_1B",
+  "wandb_run_name": "seed42",
+  "data_sampling_method": "sac",
+  "data_sampling_warmup_steps": 834,
+  "data_sampling_update_frequency": 1,
+  "mixed_minibatches": true,
+  "data_sampling_smoothing_factor": 0.5
+}

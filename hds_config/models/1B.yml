@@ -1,0 +1,101 @@
+{
+# model settings
+  "num-layers": 16,
+  "hidden-size": 2048,
+  "num-attention-heads": 16,
+  "seq-length": 1024,
+  "max-position-embeddings": 1024,
+  "pos-emb": "rotary",
+  "rotary-pct": 0.25,
+  "no-weight-tying": true,
+  "gpt-j-residual": true,
+  "output-layer-parallelism": "column",
+
+  "attention-config": [[["flash"], 16]],
+
+  "scaled-upper-triang-masked-softmax-fusion": true,
+  "bias-gelu-fusion": true,
+
+  "train_batch_size": 1152,
+  "train_micro_batch_size_per_gpu": 8,
+  "gradient_accumulation_steps": 18,
+  "data-impl": "mmap",
+  "num_workers": 8,
+
+  # optimizer settings
+  "optimizer": {
+    "type": "Adam",
+    "params": {
+      "lr": 0.00025,
+      "betas": [0.9, 0.95],
+      "eps": 1.0e-8
+    }
+  },
+  "min_lr": 0.000025,
+
+  "zero_optimization": {
+    "stage": 1,
+    "allgather_partitions": true,
+    "allgather_bucket_size": 500000000,
+    "overlap_comm": true,
+    "reduce_scatter": true,
+    "reduce_bucket_size": 500000000,
+    "contiguous_gradients": true,
+    "cpu_offload": false
+  },
+
+  # activation checkpointing
+  "checkpoint-activations": false,
+  "checkpoint-num-layers": 1,
+  "partition-activations": false,
+  "synchronize-each-layer": false,
+
+  # regularization
+  "gradient_clipping": 1.0,
+  "weight-decay": 0.1,
+  "hidden-dropout": 0,
+  "attention-dropout": 0,
+
+  # precision settings
+  "fp16": {
+    "fp16": true,
+    "enabled": true,
+    "loss_scale": 0,
+    "loss_scale_window": 1000,
+    "initial_scale_power": 12,
+    "hysteresis": 2,
+    "min_loss_scale": 1
+  },
+
+  # train settings
+  "train-iters": 41667,
+  "lr-decay-iters": 41667,
+  "distributed-backend": "nccl",
+  "lr-decay-style": "cosine",
+  "warmup": 0.01,
+  "checkpoint-factor": 4167,
+  "eval-interval": 417,
+
+  # logging
+  "log-interval": 100,
+  "steps_per_print": 10,
+  "wall_clock_breakdown": true,
+
+  # tokenizer settings
+  "tokenizer-type": "HFTokenizer",
+  "vocab-file": "./tokenizer_config/20B_tokenizer.json",
+
+  # wandb settings
+  "use_wandb": true,
+  "wandb_project": "hds_1B",
+  "tensorboard_dir": "./tensorboard_log",
+
+  # domain specific settings
+  "use_named_train_datasets": true,
+  "use_named_eval_datasets": true,
+  "max_validation_samples_per_dataset": 5000,
+
+  "keep_last_n_checkpoints": 1
+
+
+}

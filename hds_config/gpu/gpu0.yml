@@ -1,0 +1,5 @@
+{  
+  "include": "localhost:0",
+  "world_size": 1,
+  "master_port": 12345,
+}

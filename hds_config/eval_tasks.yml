@@ -1,0 +1,3 @@
+{
+  "eval_tasks": ["lambada_openai", "piqa", "winogrande", "arc_easy", "sciq", "wikitext", "openbookqa"],
+}

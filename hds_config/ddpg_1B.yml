@@ -1,0 +1,41 @@
+{
+  "hds":{
+            "selected_weights_name": [
+              "module.sequential.17.mlp.dense_4h_to_h.weight",
+              "module.sequential.15.mlp.dense_4h_to_h.weight",
+              "module.sequential.13.mlp.dense_4h_to_h.weight",
+            ],
+            "dw_min": -999.0,
+            "dw_max": 999.0,
+            "update_n": 256,
+            "train_micro_batch_size_per_gpu": 32,
+            "pool_size": 10000,
+            "gamma": 0.95,
+            "tau": 0.001,
+            "Q_hidden_dim": 1024,
+            "P_hidden_dim": 1024,
+            # domain_num used for per domain micro num in training stage
+            "domain_num": 1,
+            # only multi gradiant accumulation steps use
+            "batch_size": 1152,
+            "save_path": "./hds_ckpts/1B",
+            "init_step": 0,
+            "warmup_iter": 834,
+            "start_lr": 0.01,
+            "lr_decay_style": "cosine",
+            "min_lr": 0.001,
+            "weights_layers": [
+                                "module.sequential.17.mlp.dense_4h_to_h.weight",
+                                "module.sequential.15.mlp.dense_4h_to_h.weight",
+                                "module.sequential.13.mlp.dense_4h_to_h.weight",
+                                "module.sequential.11.mlp.dense_4h_to_h.weight",
+                                "module.sequential.9.mlp.dense_4h_to_h.weight",
+                                "module.sequential.7.mlp.dense_4h_to_h.weight",
+                                "module.sequential.5.mlp.dense_4h_to_h.weight",
+                                "module.sequential.3.mlp.dense_4h_to_h.weight",
+                                "module.sequential.2.mlp.dense_4h_to_h.weight"
+            ],
+            "iter_coe": 100,
+
+  }
+}
