@@ -2,6 +2,8 @@
 
 This repository is the official implementation of **Holistic Data Scheduler for LLM Pre-training via Multi-Objective Reinforcement Learning**. 
 
+The zenodo DOI：[![DOI](https://zenodo.org/badge/1030279691.svg)](https://doi.org/10.5281/zenodo.18123749)
+
 ![HDS - Overview](./imgs/arch.png)
 
 ## Requirements
